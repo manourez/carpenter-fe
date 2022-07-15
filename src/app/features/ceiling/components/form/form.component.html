@@ -1,0 +1,87 @@
+<div class="p-3 overflow-y-scroll">
+  <h3 class="text-gray-900 font-bold text-lg">{{ !editMode ? 'Ajouter un plafond' : 'Modifier un plafond '}}</h3>
+  <form class="mt-3" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>libéllé</mat-label>
+      <input
+        matInput
+        formControlName="name"
+      />
+      <mat-error>Ce champs est requis !</mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Image</mat-label>
+      <input
+        matInput
+        formControlName="imageUrl"
+        placeholder="Insérer une URL valide svp !"
+      />
+      <mat-error>Ce champs est requis !</mat-error>
+    </mat-form-field>
+    <div class="w-full flex justify-between">
+      <mat-form-field appearance="outline">
+        <mat-label>Référence</mat-label>
+        <input
+          matInput
+          formControlName="reference"
+        />
+        <mat-error>Ce champs est requis !</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Prix</mat-label>
+        <input
+          matInput
+          formControlName="price"
+        />
+        <mat-error>Ce champs est requis !</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="w-full flex justify-between">
+      <mat-form-field appearance="outline">
+        <mat-label>Largeur</mat-label>
+        <input
+          matInput
+          formControlName="width"
+        />
+        <mat-error>Ce champs est requis !</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Longueur</mat-label>
+        <input
+          matInput
+          formControlName="height"
+        />
+        <mat-error>Ce champs est requis !</mat-error>
+      </mat-form-field>
+    </div>
+    <div formArrayName="performances">
+      <div
+        *ngFor="let item of performances.controls; let i = index"
+      >
+        <mat-checkbox
+          [formControlName]="i"
+        >
+          {{ perfs[i].name }}
+        </mat-checkbox>
+      </div>
+    </div>
+    <div class="flex justify-end" mat-dialog-actions>
+      <button
+        type="button"
+        mat-stroked-button
+        (click)="onCancel()"
+      >
+        ANNULER
+      </button>
+      <button
+        type="submit"
+        class="bg-gray-900 text-slate-100"
+        mat-flat-button
+        (click)="onCloseDialog()"
+        [disabled]="!form.valid"
+      >
+        VALIDER
+      </button>
+    </div>
+  </form>
+</div>

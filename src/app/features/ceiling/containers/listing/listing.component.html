@@ -1,0 +1,13 @@
+
+  <div class="my-12 p-3 w-full h-full">
+    <div *ngIf="user" class="my-6 text-right">
+      <button (click)="openFormDialog()" class="bg-gray-900 text-slate-100 rounded-md p-1 hover:opacity-60"><mat-icon class="pt-1">add</mat-icon><span>Ajouter un plafond</span></button>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let item of ceilings | async">
+        <app-card [user]="user" [ceiling]="item"></app-card>
+      </div>
+    </div>
+  </div>
+
+

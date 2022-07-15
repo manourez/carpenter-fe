@@ -1,0 +1,21 @@
+<div>
+  <h3 class="text-lg text-red-500 font-bold">Suppression</h3>
+  <p class="leading-loose text-sm text-gray-900">Etes vous sûr de vouloir supprimer ce plafond ? </p>
+  <div class="flex justify-end" mat-dialog-actions>
+    <button
+      type="button"
+      mat-stroked-button
+      (click)="onCancel()"
+    >
+      ANNULER
+    </button>
+    <button
+      class="bg-gray-900 text-slate-100"
+      mat-flat-button
+      [mat-dialog-close]="data"
+      (click)="onCloseDialog()"
+    >
+      VALIDER
+    </button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="bg-gray-900 flex items-center justify-between h-100 w-full p-3">
+  <div>
+    <h2 (click)="onHomeClicked()" class="text-stone-50 font-bold text-3xl cursor-pointer">Ceiling center</h2>
+  </div>
+  <div *ngIf="!isConnected" class="mr-3">
+    <button (click)="onLoginClicked()" class="mr-2 bg-stone-50 text-gray-900 p-2 rounded-md text-sm hover:text-stone-50 hover:border hover:border-stone-50 hover:bg-gray-900">Se connecter</button>
+    <button (click)="onRegisterClicked()" class="text-stone-50 text-sm border border-stone-50 rounded-md p-2 hover:text-gray-900 hover:bg-stone-50">S'enregistrer</button>
+  </div>
+  <div *ngIf="isConnected" class="mr-3">
+    <button (click)="onLogoutClicked()" class="mr-2 bg-stone-50 text-gray-900 p-2 rounded-md text-sm hover:text-stone-50 hover:border hover:border-stone-50 hover:bg-gray-900">Se déconnecter</button>
+  </div>
+</div>
